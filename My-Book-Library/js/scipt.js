@@ -25,7 +25,11 @@ function Book(title, author, pages, read) {
 }
 
 const theHobbit = new Book("the Hobbit", "J.R.R Tolkien", 295, false);
+const inferno = new Book("Inferno", "Dan Brown", 692, true);
 addBookToLibrary(theHobbit);
+addBookToLibrary(inferno);
 
-let libraryItem = document.querySelector('.library__item');
-let libraryItems = document.querySelectorAll('.library__item');
+let library = document.querySelector('.library');
+let libraryItem = document.createElement('div');
+libraryItem.classList.add('library__item');
+library.appendChild(libraryItem);
