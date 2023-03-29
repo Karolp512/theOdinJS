@@ -13,6 +13,7 @@ III. After click, create new object
 
 let myLibrary = [];
 
+
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -20,16 +21,28 @@ function Book(title, author, pages, read) {
     this.read = read;
   }
 
+
  function addBookToLibrary(xyz) {
   myLibrary.push(xyz);
 }
+
 
 const theHobbit = new Book("the Hobbit", "J.R.R Tolkien", 295, false);
 const inferno = new Book("Inferno", "Dan Brown", 692, true);
 addBookToLibrary(theHobbit);
 addBookToLibrary(inferno);
 
+
 let library = document.querySelector('.library');
 let libraryItem = document.createElement('div');
+let libraryTitle = document.createElement('p');
+let libraryAuthor = document.createElement('p');
+
+libraryTitle.innerHTML = myLibrary[0]['title'];
+libraryAuthor.innerHTML = myLibrary[0]['author'];
+
 libraryItem.classList.add('library__item');
+libraryItem.appendChild(libraryTitle);
+libraryItem.appendChild(libraryAuthor);
+
 library.appendChild(libraryItem);
