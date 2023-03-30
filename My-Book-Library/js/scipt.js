@@ -1,18 +1,5 @@
-/*
-I. Set Up grid
-  1. max 3 column in 1 row
-  2. responsive - autofit
-  3. max width of container - 1200px
-II. Add object to html
-  1. create testing object
-  2. insert object to array
-  3. prepare container to adding new objects
-III. After click, create new object
-
-*/
-
 let myLibrary = [];
-
+let libraryItems = [];
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -21,22 +8,29 @@ function Book(title, author, pages, read) {
     this.read = read;
   }
 
-
  function addBookToLibrary(xyz) {
   myLibrary.push(xyz);
 }
-
 
 const theHobbit = new Book("the Hobbit", "J.R.R Tolkien", 295, false);
 const inferno = new Book("Inferno", "Dan Brown", 692, true);
 addBookToLibrary(theHobbit);
 addBookToLibrary(inferno);
 
-
 let library = document.querySelector('.library');
-let libraryItem = document.createElement('div');
-let libraryTitle = document.createElement('p');
-let libraryAuthor = document.createElement('p');
+
+function createLibraryItem() {
+  const libraryItem = document.createElement('div');
+  const title = document.createElement('p');
+  const author = document.createElement('p');
+  const pages = document.createElement('p');
+  const read = document.createElement('p');
+  const deleteItem = document.createElement('button');
+  const changeRead = document.createElement('button');
+
+  
+
+}
 
 libraryTitle.innerHTML = myLibrary[0]['title'];
 libraryAuthor.innerHTML = myLibrary[0]['author'];
@@ -46,3 +40,4 @@ libraryItem.appendChild(libraryTitle);
 libraryItem.appendChild(libraryAuthor);
 
 library.appendChild(libraryItem);
+
