@@ -15,29 +15,49 @@ function Book(title, author, pages, read) {
 const theHobbit = new Book("the Hobbit", "J.R.R Tolkien", 295, false);
 const inferno = new Book("Inferno", "Dan Brown", 692, true);
 addBookToLibrary(theHobbit);
+createLibraryItem(theHobbit);
 addBookToLibrary(inferno);
+createLibraryItem(inferno);
 
-let library = document.querySelector('.library');
-
-function createLibraryItem() {
+function createLibraryItem(book) {
+  let library = document.querySelector('.library');
   const libraryItem = document.createElement('div');
   const title = document.createElement('p');
   const author = document.createElement('p');
   const pages = document.createElement('p');
   const read = document.createElement('p');
-  const deleteItem = document.createElement('button');
   const changeRead = document.createElement('button');
+  const deleteItem = document.createElement('button');
 
+  libraryItem.classList.add('library__item');
+  changeRead.classList.add('changeBtn');
+  deleteItem.classList.add('deleteBtn');
+
+  title.textContent = book.title;
+  author.textContent = book.author;
+  pages.textContent = book.pages;
+  read.textContent = book.read;
+  changeRead.textContent = "change Read";
+  deleteItem.textContent = "delete";
   
+  libraryItem.appendChild(title);
+  libraryItem.appendChild(author);
+  libraryItem.appendChild(pages);
+  libraryItem.appendChild(read);
+  libraryItem.appendChild(changeRead);
+  libraryItem.appendChild(deleteItem);
 
+  library.appendChild(libraryItem);
 }
 
-libraryTitle.innerHTML = myLibrary[0]['title'];
-libraryAuthor.innerHTML = myLibrary[0]['author'];
+let btnList = Array.from(document.querySelectorAll(".deleteBtn"));
+console.log(btnList);
+let libraryList = document.querySelectorAll(".library__item");
 
-libraryItem.classList.add('library__item');
-libraryItem.appendChild(libraryTitle);
-libraryItem.appendChild(libraryAuthor);
+for(let x = 0; x < btnList.length; x++){
+  btnList[x].addEventListener("click", (deleteLibraryItem));
+}
 
-library.appendChild(libraryItem);
-
+ function deleteLibraryItem(){
+  console.log(this.parentNode.remove());
+} 

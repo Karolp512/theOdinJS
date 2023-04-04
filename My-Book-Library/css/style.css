@@ -13,4 +13,12 @@ body .library__item {
   display: flex;
   flex-direction: column;
   text-align: center;
+}
+body .library__item .changeBtn {
+  width: 50%;
+  margin: 0 auto;
+}
+body .library__item .deleteBtn {
+  width: 50%;
+  margin: 0 auto;
 }/*# sourceMappingURL=style.css.map */

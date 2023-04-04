@@ -16,6 +16,16 @@ body{
             display: flex;
             flex-direction: column;
             text-align: center;
+
+            .changeBtn{
+                width: 50%;
+                margin: 0 auto;
+            }
+
+            .deleteBtn{
+                width: 50%;
+                margin: 0 auto;
+            }
         }
    }
 }
