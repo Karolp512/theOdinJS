@@ -1,4 +1,5 @@
-//adding new object
+/* ---- ADDING NEW OBJECT ---- */
+
 let myLibrary = [];
 let btnAdd = document.querySelector(".add__item-btn");
 let popupWindow = document.querySelector(".popup");
@@ -6,6 +7,24 @@ let popupWindow = document.querySelector(".popup");
 btnAdd.addEventListener('click', ()=>{
   popupWindow.classList.add('show');
 })
+
+popupWindow.addEventListener('submit', (e) => {
+  e.preventDefault();
+  console.log('dupa');
+  const titleInput = document.getElementById('titleInput');
+  const authorInput = document.getElementById('authorInput');
+  const pagesInput = document.getElementById('pagesInput');
+  const readInput = document.getElementById('readInput');
+
+  const book = new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.checked)
+  addBookToLibrary(book);
+  createLibraryItem(book);
+  hidePopupWindow();
+})
+
+function hidePopupWindow(){
+  popupWindow.classList.remove('show');
+}
 
 function Book(title, author, pages, read) {
     this.title = title;

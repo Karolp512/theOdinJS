@@ -23,6 +23,7 @@ body main .popup {
   transform: translate(-50%, -50%);
   display: none;
   opacity: 0.1;
+  transition: opacity 0.6s ease-in-out;
 }
 body main .library {
   display: grid;
@@ -51,5 +52,4 @@ body main .library__item .deleteBtn {
 body main .show {
   display: block;
   opacity: 1;
-  transition: opacity 0.3s ease-in-out;
 }/*# sourceMappingURL=style.css.map */
