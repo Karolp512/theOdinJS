@@ -6,26 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css"/>
+    <script src="https://kit.fontawesome.com/96be99af50.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
     <main>
-        <div class="btn-add"></div>
-        <section class="library">
-            <!-- <div class="library__item">
-                <div class="title">
-                    <p>Title:</p>
-                </div>
-                <div class="author">
-                    <p>Author:</p>
-                </div>
-                <div class="pages">
-                    <p>Pages</p>
-                </div>
-                <div class="read">
-                </div>
-            </div> -->
-        </section>
+        <!-- Button to add new element -->
+        <div class="add__item">
+            <button class="add__item-btn"><i class="fa-regular fa-plus"></i><span>Add Items</span></button>
+        </div>
+        <!-- This form will popup after click button -->
+        <form class="popup">
+            <p>Add new book</p>
+            <input type="text" name="titleInput" id="titleInput" placeholder="Title" required>
+            <input type="text" name="authorInput" id="authorInput" placeholder="Author" required>
+            <input type="text" name="pagesInput" id="pagesInput" placeholder="Pages" required><br>
+            <label for="readInput">Did you read this book?</label>
+            <input type="checkbox" id="readInput" name="readInput" value="read">
+            <input type="submit" value="Submit">
+        </form>
+        <!-- In this section books will be added via javascript -->
+        <section class="library"></section>
     </main>
     
     <script src="js/scipt.js"></script>

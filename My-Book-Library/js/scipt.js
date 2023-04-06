@@ -1,5 +1,11 @@
+//adding new object
 let myLibrary = [];
-let libraryItems = [];
+let btnAdd = document.querySelector(".add__item-btn");
+let popupWindow = document.querySelector(".popup");
+
+btnAdd.addEventListener('click', ()=>{
+  popupWindow.classList.add('show');
+})
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -30,6 +36,7 @@ function createLibraryItem(book) {
   const deleteItem = document.createElement('button');
 
   libraryItem.classList.add('library__item');
+  read.classList.add('read');
   changeRead.classList.add('changeBtn');
   deleteItem.classList.add('deleteBtn');
 
@@ -37,8 +44,8 @@ function createLibraryItem(book) {
   author.textContent = book.author;
   pages.textContent = book.pages;
   read.textContent = book.read;
-  changeRead.textContent = "change Read";
-  deleteItem.textContent = "delete";
+  changeRead.textContent = "Change read status";
+  deleteItem.textContent = "Delete";
   
   libraryItem.appendChild(title);
   libraryItem.appendChild(author);
@@ -49,13 +56,23 @@ function createLibraryItem(book) {
 
   library.appendChild(libraryItem);
 }
+//change read status after click btn
+let readBtnList = Array.from(document.querySelectorAll(".changeBtn"));
 
-let btnList = Array.from(document.querySelectorAll(".deleteBtn"));
-console.log(btnList);
-let libraryList = document.querySelectorAll(".library__item");
+console.log(readBtnList);
 
-for(let x = 0; x < btnList.length; x++){
-  btnList[x].addEventListener("click", (deleteLibraryItem));
+for(let x = 0; x < readBtnList.length; x++){
+  readBtnList[x].addEventListener("click", changeReadStatus);
+}
+
+ function changeReadStatus(){
+  console.log(this.parentNode.childNodes);
+} 
+//delete item after cick btn
+let deleteBtnList = Array.from(document.querySelectorAll(".deleteBtn"));
+
+for(let x = 0; x < deleteBtnList.length; x++){
+  deleteBtnList[x].addEventListener("click", (deleteLibraryItem));
 }
 
  function deleteLibraryItem(){
